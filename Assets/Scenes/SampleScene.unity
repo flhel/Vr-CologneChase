@@ -644,7 +644,7 @@ Transform:
   m_Children:
   - {fileID: 1650057375}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &931891971
 GameObject:
@@ -688,7 +688,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &931891974
 MonoBehaviour:
@@ -1288,6 +1288,7 @@ GameObject:
   - component: {fileID: 1214614342}
   - component: {fileID: 1214614341}
   - component: {fileID: 1214614345}
+  - component: {fileID: 1214614346}
   m_Layer: 0
   m_Name: Locomotion System
   m_TagString: Untagged
@@ -1375,7 +1376,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1214614345
 MonoBehaviour:
@@ -1384,56 +1385,61 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214614340}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2fadf230d1919748a9aa21d40f74619, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bf296fc962d7184ab14ad1841598d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackingType: 0
-  m_UpdateType: 0
-  m_PositionInput:
+  m_System: {fileID: 0}
+  m_MoveSpeed: 1
+  m_EnableStrafe: 1
+  m_UseGravity: 1
+  m_GravityApplicationMode: 0
+  m_ForwardSource: {fileID: 0}
+  m_LeftHandMoveAction:
     m_UseReference: 1
     m_Action:
-      m_Name: Position Input
+      m_Name: Left Hand Move
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: f09eb91b-9d99-43f2-b54c-31b4751609d0
+      m_Id: 65e8523a-3722-467e-baeb-bffb1bebb96b
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 7862207684358717888, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  m_RotationInput:
-    m_UseReference: 0
+  m_RightHandMoveAction:
+    m_UseReference: 1
     m_Action:
-      m_Name: Rotation Input
+      m_Name: Right Hand Move
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: ad31c156-baca-46db-82de-1152b4931c15
+      m_Id: 4c5d0dbd-f86b-4a05-b7ca-68e41a129dca
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: d34e9fa5-f4b7-49ef-a165-b8fffada179b
+        m_Path: <OculusTouchController>/deviceAcceleration
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Right Hand Move
+        m_Flags: 0
       m_Flags: 0
-    m_Reference: {fileID: 0}
-  m_PositionAction:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  m_RotationAction:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  m_HasMigratedActions: 1
+    m_Reference: {fileID: -3326005586356538449, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!114 &1214614346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214614340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4bdb7dccc593444a41b197caad0317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1236584027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1729,7 +1735,7 @@ Transform:
   m_Children:
   - {fileID: 2076010852}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1472689208
 PrefabInstance:
@@ -1907,7 +1913,7 @@ Transform:
   m_Children:
   - {fileID: 550991142}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1650057374
 GameObject:
