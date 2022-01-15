@@ -12,22 +12,22 @@ namespace UnityEngine.XR.Interaction.Toolkit
         public CustomMoveProvider p;
 
         void Awake() {
-            //get all input actions
+            // get all input actions
             controllerActionGrip.action.performed += GripPressPerformed;
             controllerActionGrip.action.canceled += GripPressCanceled;
 
             controllerActionTrigger.action.performed += TriggerPressPerformed;
             controllerActionTrigger.action.canceled += TriggerPressCanceled;
 
-            //get the animator
+            // get the animator
             _handAnimator = GetComponent<Animator>();
 
-            //get the locomotion system
+            // get the locomotion system
             GameObject moveProvider = GameObject.Find("Locomotion System");
             p  = moveProvider.GetComponent<CustomMoveProvider>();
         }
 
-        //Grip input actions
+        // Grip input actions
         private void GripPressPerformed(InputAction.CallbackContext obj) {
             SetGripAnimator(obj);
         }
@@ -40,7 +40,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             _handAnimator.SetFloat("Grip", obj.ReadValue<float>());
         }
 
-        //Trigger input actions
+        // Trigger input actions
         private void TriggerPressPerformed(InputAction.CallbackContext obj) {
             SetTriggerAnimator(obj);
             p.EnableMove(obj.action.activeControl.device.deviceId);
