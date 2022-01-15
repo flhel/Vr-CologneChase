@@ -60,23 +60,28 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
             if(moveLeftEnabled) {
                 var leftHandValue = m_LeftHandMoveAction.action?.ReadValue<Vector3>() ?? Vector3.zero;
-                leftHandValue.x = 0; //Less shaking from left to right
-                leftHandValue.z = 0; //will be dropped anyways due to conversion to vector2
+                /*
                 if(leftHandValue.y < 0) {
                     leftHandValue.y = leftHandValue.y * -1; //negative acceleration should still result in forwardmovement
-                }  
+                } 
+                */ 
                 moveForce.y = moveForce.y + leftHandValue.y;
             } 
             if(moveRightEnabled) {
                 var rightHandValue = m_RightHandMoveAction.action?.ReadValue<Vector3>() ?? Vector3.zero;
-                rightHandValue.x = 0; //Less shaking from left to right
-                rightHandValue.z = 0; //will be dropped anyways
+                /*
                 if(rightHandValue.y < 0) {
                     rightHandValue.y = rightHandValue.y * -1; //negative acceleration should still result in forwardmovement
                 }  
+                */
                 moveForce.y = moveForce.y + rightHandValue.y;
             }     
-            return moveForce;
+
+            if(moveForce.y < 1) {
+                return Vector2.zero;
+            }
+            Debug.Log(moveForce);
+            return moveForce * moveForce * moveForce;
         }
 
         void SetInputActionProperty(ref InputActionProperty property, InputActionProperty value)

@@ -180,9 +180,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "ggg",
+                    "name": "Velocity",
                     "type": "Value",
-                    "id": "1bca184b-52ea-4c85-87bc-bd42fed5873a",
+                    "id": "85c9265c-e5c8-4020-a042-a0a10cfa81dd",
                     "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": "",
@@ -379,12 +379,12 @@
                 },
                 {
                     "name": "",
-                    "id": "6aa8ab9c-a041-4bbc-8850-d8128161f926",
-                    "path": "<XRController>{LeftHand}/deviceAngularAcceleration",
+                    "id": "118c80f2-b197-4ea7-99af-8355be7f33b1",
+                    "path": "<XRController>{LeftHand}/deviceVelocity",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ggg",
+                    "action": "Velocity",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -515,6 +515,15 @@
                     "name": "Acceleration",
                     "type": "Value",
                     "id": "e768ea40-d297-460e-95f5-e6c1a29c4c56",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Velocity",
+                    "type": "Value",
+                    "id": "1361f811-58e8-419f-96fb-cbbb6950026a",
                     "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": "",
@@ -706,6 +715,17 @@
                     "processors": "",
                     "groups": "Continuous Move;Noncontinuous Move",
                     "action": "Acceleration",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "21e667d1-e42f-4171-8599-68e0d37489bc",
+                    "path": "<XRController>{RightHand}/deviceVelocity",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Velocity",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
