@@ -30,26 +30,37 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => SetInputActionProperty(ref m_RightHandMoveAction, value);
         }
 
-        // Is managed in HandController.cs
+        private int controllerLeftId = -1;
+        private int controllerRightId = -1;
+
+        // Is managed through HandController.cs
         private bool moveLeftEnabled = false;
         private bool moveRightEnabled = false;
 
+        //The activation of the controller movement value readings is split between left and right
         public void EnableMove(int deviceId)
-        {   
-            if(m_LeftHandMoveAction.action.activeControl.device.deviceId == deviceId){
+        {      
+            //Initialising the controller(l/r) ids
+            if(controllerLeftId < 0) { // && controllerRightId < 0
+                 controllerLeftId = m_LeftHandMoveAction.action.activeControl.device.deviceId;
+                 controllerRightId = m_RightHandMoveAction.action.activeControl.device.deviceId;
+            }
+            //Setting status enabled for left
+            if(controllerLeftId == deviceId){
                 moveLeftEnabled = true;
             }
-            if(m_RightHandMoveAction.action.activeControl.device.deviceId == deviceId){
+            //Setting status enabled for right
+            if(controllerRightId == deviceId){
                 moveRightEnabled = true;
-            }   
+            }  
         }
 
         public void DisableMove(int deviceId)
         {
-            if(m_LeftHandMoveAction.action.activeControl.device.deviceId == deviceId){
+             if(controllerLeftId == deviceId){
                 moveLeftEnabled = false;
-            }
-            if(m_RightHandMoveAction.action.activeControl.device.deviceId == deviceId){
+            }   
+            if(controllerRightId == deviceId){
                 moveRightEnabled = false;
             }
         }
