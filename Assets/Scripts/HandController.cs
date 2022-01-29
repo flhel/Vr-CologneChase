@@ -30,12 +30,12 @@ namespace UnityEngine.XR.Interaction.Toolkit
         // Grip input actions
         private void GripPressPerformed(InputAction.CallbackContext obj) {
             SetGripAnimator(obj);
-            p.EnableMove(obj.action.activeControl.device.deviceId);
+            
         }
 
         private void GripPressCanceled(InputAction.CallbackContext obj) {
             SetGripAnimator(obj);
-            p.DisableMove(obj.action.activeControl.device.deviceId);
+            
         }
 
         private void SetGripAnimator(InputAction.CallbackContext obj) {
@@ -47,16 +47,21 @@ namespace UnityEngine.XR.Interaction.Toolkit
         // Trigger input actions
         private void TriggerPressPerformed(InputAction.CallbackContext obj) {
             SetTriggerAnimator(obj);
+            p.EnableMove(obj.action.activeControl.device.deviceId);
         }
 
         private void TriggerPressCanceled(InputAction.CallbackContext obj) {
             SetTriggerAnimator(obj);
+            p.DisableMove(obj.action.activeControl.device.deviceId);
         }
 
         private void SetTriggerAnimator(InputAction.CallbackContext obj) {
+            //No animation for Trigger required 
+            /*
             if(_handAnimator != null) {
                 _handAnimator.SetFloat("Trigger", obj.ReadValue<float>());
             }
+            */
         }
     }
 }
