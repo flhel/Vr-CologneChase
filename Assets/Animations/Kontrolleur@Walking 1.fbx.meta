@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: bd0282871512dd847b1533276e7765e9
+guid: 431a3ade13571404c880e811791785f4
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Running
+    second: Walking 1
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -16,7 +16,7 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
-    optimizeGameObjects: 0
+    optimizeGameObjects: 1
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Running
+      name: Walking 1
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 34
+      lastFrame: 77
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
