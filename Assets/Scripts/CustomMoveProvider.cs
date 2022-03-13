@@ -93,7 +93,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             
             // Attention order!!!
             // manages movement speed relative to real arm movement 
-            Debug.Log(moveForce);
+            //Debug.Log(moveForce);
 
             if(moveForce.y < 1) {
                 return Vector2.zero;

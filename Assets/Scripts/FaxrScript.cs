@@ -8,14 +8,24 @@ public class FaxrScript : MonoBehaviour
 {
     public AudioSource audioSource; 
     public Seeker seeker;
+    public AIPath aiPath;
+    public Animator animator;
 
-    public Path path;
+    
 
     void Start()
     {
-        seeker = GetComponent<Seeker>();
+        seeker = GetComponentInParent<Seeker>();
+        aiPath = GetComponentInParent<AIPath>();
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
         PlayRunningSound();
+    }
+
+    void Update() {
+        if(aiPath.reachedEndOfPath) {
+            animator.SetBool("IsOnPhone", true);
+        }
     }
 
     public void LoadMainMenu() {
