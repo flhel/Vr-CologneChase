@@ -41,8 +41,8 @@ namespace UnityEngine.XR.Interaction.Toolkit {
             pauseMenu.SetActive(true);
             gameOverText.SetActive(true);
             playButton.SetActive(false);
-            gamePaused = true;
-            Time.timeScale = 0f;
+            //gamePaused = true;
+            //Time.timeScale = 0f;
         }
 
         public void MainMenu(){
