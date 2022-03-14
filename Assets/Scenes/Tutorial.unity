@@ -3187,7 +3187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1787276105}
-  seeker: {fileID: 328693446}
   aiPath: {fileID: 328693444}
   animator: {fileID: 1787276103}
 --- !u!82 &1787276105
@@ -3359,8 +3358,8 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FAXR, Assembly-CSharp
+      - m_Target: {fileID: 1787276104}
+        m_TargetAssemblyTypeName: FaxrScript, Assembly-CSharp
         m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:

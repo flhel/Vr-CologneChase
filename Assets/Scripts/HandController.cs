@@ -7,7 +7,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         [SerializeField] InputActionReference controllerActionGrip;
         [SerializeField] InputActionReference controllerActionTrigger;
         private Animator _handAnimator;      
-        public CustomMoveProvider p;
+        public CustomMoveProvider customMoveProvider;
 
         void Awake() {
             // get the animator
@@ -15,7 +15,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
             // get the locomotion system
             GameObject moveProvider = GameObject.Find("Locomotion System");
-            p  = moveProvider.GetComponent<CustomMoveProvider>();
+            customMoveProvider  = moveProvider.GetComponent<CustomMoveProvider>();
 
             // get all input actions
             controllerActionGrip.action.performed += GripPressPerformed;
@@ -43,12 +43,12 @@ namespace UnityEngine.XR.Interaction.Toolkit
         // Trigger input actions
         private void TriggerPressPerformed(InputAction.CallbackContext obj) {
             SetTriggerAnimator(obj);
-            p.EnableMove(obj.action.activeControl.device.deviceId);
+            customMoveProvider.EnableMove(obj.action.activeControl.device.deviceId);
         }
 
         private void TriggerPressCanceled(InputAction.CallbackContext obj) {
             SetTriggerAnimator(obj);
-            p.DisableMove(obj.action.activeControl.device.deviceId);
+            customMoveProvider.DisableMove(obj.action.activeControl.device.deviceId);
         }
 
         private void SetTriggerAnimator(InputAction.CallbackContext obj) {
