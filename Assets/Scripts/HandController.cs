@@ -6,9 +6,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             
         [SerializeField] InputActionReference controllerActionGrip;
         [SerializeField] InputActionReference controllerActionTrigger;
-        private Animator _handAnimator;
-
-        
+        private Animator _handAnimator;      
         public CustomMoveProvider p;
 
         void Awake() {
@@ -24,18 +22,16 @@ namespace UnityEngine.XR.Interaction.Toolkit
             controllerActionGrip.action.canceled += GripPressCanceled;
 
             controllerActionTrigger.action.performed += TriggerPressPerformed;
-            controllerActionTrigger.action.canceled += TriggerPressCanceled;            
+            controllerActionTrigger.action.canceled += TriggerPressCanceled;
         }
 
         // Grip input actions
         private void GripPressPerformed(InputAction.CallbackContext obj) {
-            SetGripAnimator(obj);
-            
+            SetGripAnimator(obj);    
         }
 
         private void GripPressCanceled(InputAction.CallbackContext obj) {
-            SetGripAnimator(obj);
-            
+            SetGripAnimator(obj);        
         }
 
         private void SetGripAnimator(InputAction.CallbackContext obj) {
