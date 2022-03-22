@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour {
     void Awake() {
-        GameObject obj = GameObject.Find("Spray Noise");
-        DontDestroyOnLoad(obj);
+        DontDestroyOnLoad(GameObject.Find("Spray Noise"));
     }
 }

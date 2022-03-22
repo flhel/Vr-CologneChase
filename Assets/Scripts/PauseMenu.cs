@@ -17,7 +17,9 @@ namespace UnityEngine.XR.Interaction.Toolkit {
         }
 
         private void MenuButtonPressPerformed(InputAction.CallbackContext obj) {
-            gameOverText.SetActive(false);
+            if(gameOverText != null){
+                gameOverText.SetActive(false);
+            }
             if(gamePaused) {
                 PlayGame();
             } else {
@@ -32,7 +34,9 @@ namespace UnityEngine.XR.Interaction.Toolkit {
         }
 
         public void StopGame(){
-            pauseMenu.SetActive(true);
+            if(pauseMenu != null){
+                pauseMenu.SetActive(true);
+            }
             gamePaused = true;
             Time.timeScale = 0f;
         }
