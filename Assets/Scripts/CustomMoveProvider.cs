@@ -110,6 +110,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             if(moveForce.y < 15) {
                 return moveForce / 2;
             }
+
             return moveForce;
         }
 

@@ -51,6 +51,39 @@ ModelImporter:
   - first:
       74: -8563714251731073876
     second: Door.004|Door.002Action.001
+  - first:
+      74: 2326886712514992969
+    second: Door.003|Door.004Action
+  - first:
+      74: 6723022097281912017
+    second: Door.004|Door.004Action
+  - first:
+      74: -3026120703153779871
+    second: Door.001|Door.004Action
+  - first:
+      74: -1163472918889789337
+    second: Door.002|Door.004Action
+  - first:
+      74: 5874170440049094803
+    second: Object|Door.001Action
+  - first:
+      74: 304651359640369463
+    second: Object|Door.002Action
+  - first:
+      74: -2112533107804999336
+    second: Object|Door.004Action
+  - first:
+      74: -7962036608631166969
+    second: Door.001|Door.002Action.002
+  - first:
+      74: -8333481077942460319
+    second: Door.002|Door.002Action.002
+  - first:
+      74: -3100722890967846155
+    second: Door.003|Door.002Action.002
+  - first:
+      74: -5138490909746581951
+    second: Door.004|Door.002Action.002
   externalObjects: {}
   materials:
     materialImportMode: 2
