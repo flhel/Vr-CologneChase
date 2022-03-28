@@ -52,6 +52,7 @@ namespace UnityEngine.XR.Interaction.Toolkit {
         }
 
         public void MainMenu(){
+            Time.timeScale = 1f;
             //Unsubscribe now unused button event 
             controllerActionMenu.action.performed -= MenuButtonPressPerformed;
             SceneManager.LoadScene("Menu");
