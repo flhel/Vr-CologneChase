@@ -36,6 +36,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         // Is managed through HandController.cs
         private bool moveLeftEnabled = false;
         private bool moveRightEnabled = false;
+        private bool disableMoveAll = false;
 
         //The activation of the controller movement value readings is split between left and right
         public void EnableMove(int deviceId)
@@ -45,14 +46,17 @@ namespace UnityEngine.XR.Interaction.Toolkit
                  controllerLeftId = m_LeftHandMoveAction.action.activeControl.device.deviceId;
                  controllerRightId = m_RightHandMoveAction.action.activeControl.device.deviceId;
             }
-            //Setting status enabled for left
-            if(controllerLeftId == deviceId){
-                moveLeftEnabled = true;
+            //No move possible e.g. FAXR escaped
+            if(!disableMoveAll) {
+                //Setting status enabled for left
+                if(controllerLeftId == deviceId){
+                    moveLeftEnabled = true;
+                }
+                //Setting status enabled for right
+                if(controllerRightId == deviceId){
+                    moveRightEnabled = true;
+                } 
             }
-            //Setting status enabled for right
-            if(controllerRightId == deviceId){
-                moveRightEnabled = true;
-            }  
         }
 
         public void DisableMove(int deviceId)
@@ -63,6 +67,12 @@ namespace UnityEngine.XR.Interaction.Toolkit
             if(controllerRightId == deviceId){
                 moveRightEnabled = false;
             }
+        }
+
+        public void DisableMoveAll() {
+            disableMoveAll = true;
+            moveLeftEnabled = false;
+            moveRightEnabled = false;
         }
 
         // z value of vector3 will be dropped in the conversion to vector2 

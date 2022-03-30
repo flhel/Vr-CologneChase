@@ -8,14 +8,14 @@ namespace UnityEngine.XR.Interaction.Toolkit {
         private GameObject pauseMenu;
         private GameObject gameOverText;
         private GameObject playButton;
-        private GameObject rightController;
+        private GameObject rightControllerRaycast;
 
         void Awake() {
             GameObject parent = GameObject.Find("XR Rig");
             pauseMenu = FindObjectByParent(parent, "PauseMenuCanvas");
             gameOverText = FindObjectByParent(parent, "GameOverText");
             playButton = FindObjectByParent(parent, "PlayButton");
-            rightController = FindObjectByParent(parent, "RightHand Controller");
+            rightControllerRaycast = FindObjectByParent(parent, "RaycastTransformRight");
             controllerActionMenu.action.performed += MenuButtonPressPerformed;
         }
 
@@ -28,22 +28,26 @@ namespace UnityEngine.XR.Interaction.Toolkit {
             }          
         }   
 
-        public void PlayGame(){
-            rightController.GetComponent<XRInteractorLineVisual>().enabled = false;
+        public void PlayGame() {
+            rightControllerRaycast.GetComponent<XRInteractorLineVisual>().enabled = false;
             pauseMenu.SetActive(false);
             gamePaused = false;
             Time.timeScale = 1f;
         }
 
-        public void StopGame(){
-            rightController.GetComponent<XRInteractorLineVisual>().enabled = true;
+        public void StopGame() {
+            rightControllerRaycast.GetComponent<XRInteractorLineVisual>().enabled = true;
             pauseMenu.SetActive(true);
             gamePaused = true;
             Time.timeScale = 0f;
         }
 
-        public void GameOver(){
-            rightController.GetComponent<XRInteractorLineVisual>().enabled = true;
+        public void GameOver() {
+            // get the locomotion system and disable movement
+            GameObject moveProvider = GameObject.Find("Locomotion System");
+            moveProvider.GetComponent<CustomMoveProvider>().DisableMoveAll();
+
+            rightControllerRaycast.GetComponent<XRInteractorLineVisual>().enabled = true;
             pauseMenu.SetActive(true);
             gameOverText.SetActive(true);
             playButton.SetActive(false);
@@ -51,14 +55,14 @@ namespace UnityEngine.XR.Interaction.Toolkit {
             //Time.timeScale = 0f;
         }
 
-        public void MainMenu(){
+        public void MainMenu() {
             Time.timeScale = 1f;
             //Unsubscribe now unused button event 
             controllerActionMenu.action.performed -= MenuButtonPressPerformed;
             SceneManager.LoadScene("Menu");
         }
 
-        public void QuitGame(){
+        public void QuitGame() {
             Application.Quit();
         } 
 
